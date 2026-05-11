@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>WoRank | IT & AI Bootcamp 2026 | Bright Edition</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Inter', 'Segoe UI', 'Poppins', system-ui, sans-serif;
+      padding: 20px;
+    }
+
+    /* Main flyer card - bright white/clean background */
+    .flyer {
+      max-width: 560px;
+      width: 100%;
+      background: #FFFFFF;
+      border-radius: 48px;
+      overflow: hidden;
+      box-shadow: 0 30px 50px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,107,107,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .flyer:hover {
+      transform: scale(1.01);
+    }
+
+    /* Bright gradient accent bar */
+    .accent-bar {
+      height: 8px;
+      background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #FFE66D, #FF6B6B);
+      background-size: 300% 100%;
+      animation: shimmer 3s infinite linear;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 0% 0; }
+      100% { background-position: 100% 0; }
+    }
+
+    .content {
+      padding: 32px 28px 40px;
+    }
+
+    /* ===== YOUR LOGO SECTION ===== */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      border-bottom: 2px solid #FFE66D;
+      padding-bottom: 16px;
+    }
+
+    /* Logo image area */
+    .logo-image {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 14px rgba(255,107,107,0.3);
+    }
+    .logo-image span:first-child {
+      font-weight: 800;
+      font-size: 16px;
+      color: white;
+      letter-spacing: 1px;
+    }
+    .logo-image span:last-child {
+      font-size: 8px;
+      color: #FFF9C4;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .brand-details {
+      flex: 1;
+    }
+    .brand-name {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #2C3E50;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.1;
+    }
+    .brand-tagline {
+      font-size: 10px;
+      font-weight: 600;
+      color: #FF6B6B;
+      letter-spacing: 1.5px;
+      margin-top: 4px;
+    }
+
+    /* Main title - bright gradient */
+    .main-title {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 16px 0 12px 0;
+      background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 50%, #FFE66D 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+    }
+
+    .subhead-modern {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #4A5568;
+    }
+
+    .pill-badge {
+      background: linear-gradient(135deg, #FFF5E6, #FFE6F0);
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 13px;
+      display: inline-flex;
+      gap: 10px;
+      margin: 12px 0 20px;
+      border: 1px solid #FF6B6B;
+      color: #2D3748;
+      font-weight: 500;
+    }
+
+    /* Track cards - bright pastel backgrounds */
+    .tracks-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin: 28px 0 30px;
+    }
+    .track-card {
+      flex: 1;
+      background: linear-gradient(135deg, #FFF9F0, #FFFFFF);
+      border-radius: 28px;
+      padding: 20px 18px;
+      transition: all 0.2s;
+      border: 1px solid #FFE66D;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .track-card:hover {
+      border-color: #FF6B6B;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(255,107,107,0.15);
+    }
+    .track-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #FF6B6B;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .week-modern {
+      margin-bottom: 16px;
+      border-left: 3px solid #FFE66D;
+      padding-left: 12px;
+    }
+    .week-title-modern {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #FF8E53;
+      letter-spacing: 0.5px;
+    }
+    .week-desc-modern {
+      font-size: 12px;
+      line-height: 1.45;
+      color: #4A5568;
+      margin-top: 5px;
+      font-weight: 500;
+    }
+
+    /* Benefits grid - bright */
+    .section-title-modern {
+      font-size: 24px;
+      font-weight: 700;
+      color: #FF6B6B;
+      margin: 20px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .benefits-modern {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .benefit-modern {
+      background: linear-gradient(135deg, #FFF5E6, #FFFFFF);
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #4ECDC4;
+      color: #2C3E50;
+    }
+
+    /* Details card - bright coral */
+    .details-premium {
+      background: linear-gradient(135deg, #FFF5F0, #FFFFFF);
+      border-radius: 32px;
+      padding: 22px;
+      margin: 20px 0 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      border-left: 4px solid #FF6B6B;
+      border-bottom: 2px solid #FFE66D;
+    }
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 12px 0;
+      font-size: 14px;
+      padding: 4px 0;
+      color: #2D3748;
+      font-weight: 500;
+    }
+    .detail-label-modern {
+      font-weight: 800;
+      color: #FF6B6B;
+    }
+    .earlybird {
+      background: linear-gradient(135deg, #FFE66D, #FFD93D);
+      color: #2C3E50;
+      padding: 2px 10px;
+      border-radius: 50px;
+      font-weight: 800;
+    }
+
+    /* CTA Button - bright and clickable */
+    .btn-modern {
+      background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+      text-align: center;
+      padding: 16px 12px;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 18px;
+      margin-top: 16px;
+      transition: 0.2s;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255,107,107,0.3);
+    }
+    .btn-modern a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .btn-modern:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(255,107,107,0.4);
+    }
+    .contact-row {
+      text-align: center;
+      margin: 20px 0 12px;
+      font-size: 15px;
+      font-weight: 600;
+      background: #FFF9F0;
+      padding: 12px;
+      border-radius: 60px;
+      color: #2C3E50;
+      border: 1px solid #FFE66D;
+    }
+    .website-link-modern {
+      color: #FF6B6B;
+      text-decoration: none;
+      font-weight: 700;
+      word-break: break-all;
+    }
+    .footer-modern {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 12px;
+      font-style: italic;
+      border-top: 2px dashed #FFE66D;
+      padding-top: 20px;
+      color: #FF8E53;
+      font-weight: 600;
+    }
+
+    @media (max-width: 520px) {
+      .content {
+        padding: 22px 20px;
+      }
+      .main-title {
+        font-size: 28px;
+      }
+      .track-title {
+        font-size: 19px;
+      }
+      .detail-row {
+        flex-direction: column;
+        gap: 5px;
+      }
+      .logo-image {
+        width: 55px;
+        height: 55px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="flyer">
+  <div class="accent-bar"></div>
+  <div class="content">
+    
+    <!-- YOUR LOGO AREA - with uploaded image -->
+    <div class="logo-container">
+      <div class="logo-image">
+        <div class="logo-circle" style="background: url('logowhite.jpg') center/cover no-repeat; width: 70px; height: 70px; border-radius: 16px; background-size: contain; background-color: #FF6B6B;"></div>
+      </div>
+      <div class="brand-details">
+        <!-- <div class="brand-name">WORANK</div> -->
+        <div class="brand-tagline">CODING • FINANCE • AUDIT</div>
+      </div>
+    </div>
+    
+    <!-- TITLE -->
+    <div class="main-title">IT & AI BOOTCAMP<br>FOR JHS & SHS LEAVERS</div>
+    <div class="subhead-modern">✨ Master Tech Skills in 8 Weeks This Holiday ✨</div>
+    <div class="pill-badge">
+      <span>💻 No experience needed</span> • <span>📱 only Laptop and Internet </span>
+    </div>
+    
+    <!-- TRACKS -->
+    <div class="tracks-flex">
+      <!-- JHS Track -->
+      <div class="track-card">
+        <div class="track-title">📘 JHS Leavers Track</div>
+        <div class="week-modern"><div class="week-title-modern">🌟 Weeks 1–2</div><div class="week-desc-modern">Digital Literacy & Productivity (MS Office, Google Workspace, typing skills)</div></div>
+        <div class="week-modern"><div class="week-title-modern">🎨 Weeks 3–4</div><div class="week-desc-modern">Creative Design & Media (Canva, basic photo & video editing)</div></div>
+        <div class="week-modern"><div class="week-title-modern">💻 Weeks 5–6</div><div class="week-desc-modern">Intro to Coding (Scratch, logic & problem-solving)</div></div>
+        <div class="week-modern"><div class="week-title-modern">🤖 Weeks 7–8</div><div class="week-desc-modern">AI & Digital Safety (AI basics, ChatGPT, safe internet) + Final project</div></div>
+      </div>
+      
+      <!-- SHS Track -->
+      <div class="track-card">
+        <div class="track-title">💻 SHS Leavers Track</div>
+        <div class="week-modern"><div class="week-title-modern">🐍 Weeks 1–2</div><div class="week-desc-modern">Python Basics (variables, loops, conditionals, functions)</div></div>
+        <div class="week-modern"><div class="week-title-modern">🌐 Weeks 3–4</div><div class="week-desc-modern">Web Development (HTML, CSS, responsive design – portfolio webpage)</div></div>
+        <div class="week-modern"><div class="week-title-modern">⚙️ Weeks 5–6</div><div class="week-desc-modern">AI & Chatbot Fundamentals (AI models, rule-based chatbots, prompt engineering)</div></div>
+        <div class="week-modern"><div class="week-title-modern">📊 Weeks 7–8</div><div class="week-desc-modern">Data Skills & Career (Excel/Sheets, data viz, portfolios, freelancing) + Final project</div></div>
+      </div>
+    </div>
+    
+    <!-- Benefits -->
+    <div class="section-title-modern">
+      🎁 What You Get
+    </div>
+    <div class="benefits-modern">
+      <div class="benefit-modern">✅ Certificate of Completion</div>
+      <div class="benefit-modern">📁 2–3 Practical Projects</div>
+      <div class="benefit-modern">🎓 Mentorship from Pros</div>
+      <div class="benefit-modern">👥 WoRank Tech Community</div>
+      <div class="benefit-modern">🎯 Career guidance session</div>
+    </div>
+    
+    <!-- DETAILS -->
+    <div class="details-premium">
+      <div class="detail-row"><span class="detail-label-modern">📅 Duration:</span> <span>8 Weeks</span></div>
+      <div class="detail-row"><span class="detail-label-modern">🌍 Mode:</span> <span>Online Only + Group Premium Arrangement</span></div>
+      <div class="detail-row"><span class="detail-label-modern">🚀 Start Date:</span> <span>Monday, May 18, 2026</span></div>
+      <div class="detail-row"><span class="detail-label-modern">💰 Fee:</span> <span>Regular GH₵ 1000 &nbsp;|&nbsp; <span class="earlybird">🔥 Early Bird GH₵ 800</span></span></div>
+    </div>
+    
+    <!-- CTA -->
+    <div class="btn-modern">
+      <a href="https://wa.me/0243334224" target="_blank">📢 REGISTER NOW →</a>
+    </div>
+    <div class="contact-row">
+      <span>📞 Call/WhatsApp: 0243334224</span><br>
+      <span>🌐 <a href="https://worank-advert.netlify.app/" target="_blank" class="website-link-modern">https://worank-advert.netlify.app/</a></span>
+    </div>
+    <div style="text-align: center; font-size: 12px; margin-top: 8px; font-weight: 700; color: #FF6B6B;">⚠️ Limited Seats – Only 30 per batch</div>
+    
+    <div class="footer-modern">
+      💫 “From Classroom to Code. From Code to Career.” 💫
+    </div>
+  </div>
+</div>
+</body>
+</html>
